@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <script src="meme.js"></script>
+    <script src="canvasScript.js"></script>
+    <title>My Monthly Meme Generator</title>
+    <link rel="icon" href="circle_logo.png">
+    <link href="graphik.woff" rel="stylesheet">
+</head>
+
+<body>
+    <div class="operation">
+        <div class="squares">
+            <div id="blush" class="square"></div>
+            <div id="morning" class="square"></div>
+            <div id="blue" class="square"></div>
+            <div id="linen" class="square"></div>
+            <div id="purple" class="square"></div>
+            <div id="picnic" class="square"></div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="canvas" width="1800" height="1800"></canvas>
+        </div>
+    </div>
+
+    <div class="operation controls">
+        <div>
+            <button id="upload">Upload Picture</button><br>
+            <button id="download">Download Canvas</button>
+        </div>
+        <div>
+            <div class="slider-container">
+                <label for="widthSlider">Picture Width:</label>
+                <input id="widthSlider" type="range" min="720" max="1450">
+            </div>
+            <div class="text-container">
+                <input id="userText" type="text" placeholder="type your text here...">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach(square => {
+        square.addEventListener('click', () => {
+            // 移除所有 square 的 selected 类
+            squares.forEach(s => {
+                s.classList.remove('selected');
+                s.style.boxShadow = '';
+            });
+
+            // 为点击的 square 添加 selected 类
+            square.classList.add('selected');
+        });
+    });
+});
+</script>
+
+</html>

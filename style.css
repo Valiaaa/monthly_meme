@@ -1,0 +1,141 @@
+:root {
+    --picnic: #3d8054;
+    --blush: #f9ddd7;
+    --linen: #e5e9d9;
+    --morning: #f5f5ed;
+    --blue: #C6DFF1;
+    --purple: #779AD0;
+    --dawn: #282828;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('graphik.woff') format('woff');
+}
+
+body {
+    font-family: 'Graphik', Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--picnic);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.operation {
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    background-color: var(--morning);
+    border-radius: 10px;
+    border: 1.5px solid var(--dawn);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.squares {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 0;
+}
+
+.square {
+    width: 120px;
+    height: 120px;
+    background-color: var(--default-color);
+}
+
+.selected {
+    box-shadow: 0 0 0 3px var(--picnic) inset;
+}
+
+.selected#picnic, .selected#purple {
+    box-shadow: 0 0 0 3px var(--linen) inset;
+}
+
+
+#picnic:hover, #purple:hover {
+    box-shadow: 0 0 0 3px var(--linen) inset;
+}
+
+#morning:hover, #linen:hover, #blush:hover, #blue:hover {
+    box-shadow: 0 0 0 3px var(--picnic) inset;
+}
+
+#morning { background-color: var(--morning); }
+#linen { background-color: var(--linen); }
+#picnic { background-color: var(--picnic); }
+#blush { background-color: var(--blush); }
+#blue { background-color: var(--blue); }
+#purple { background-color: var(--purple); }
+
+.canvas-container {
+    width: 100%;
+    height: 360px;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.block {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.block.short {
+    flex: 1;
+}
+
+.block.long {
+    flex: 2;
+}
+
+#core {
+    width: 90%;
+    max-width: 600px;
+    height: 450px;
+}
+
+#colorh {
+    display: inline-flexbox;
+    width: fit-content;
+    height: 100%;
+    overflow: scroll;
+}
+
+#output {
+    display: inline-block;
+    width: 1080px;
+    height: 1080px;
+    transform-origin: top left;
+    transform: scale(0.2);
+    background-color: red;
+}
+
+.color {
+    width: 125px;
+    height: 125px;
+    background-color: var(--blush);
+}
+
+button {
+    font-family: "graphik";
+
+}
