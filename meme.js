@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // Handle image upload
-document.getElementById('upload').addEventListener('click', () => {
+document.getElementsByClassName('upload').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';

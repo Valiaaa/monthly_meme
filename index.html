@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="bggrid"></div>
     <div class="operation">
         <div class="squares">
             <div id="blush" class="square"></div>
@@ -30,19 +31,31 @@
     </div>
 
     <div class="operation controls">
-        <div>
-            <button id="upload">Upload Picture</button><br>
-            <button id="download">Download Canvas</button>
-        </div>
-        <div>
-            <div class="slider-container">
-                <label for="widthSlider">Picture Width:</label>
-                <input id="widthSlider" type="range" min="720" max="1450">
+        <div class="gridHolder">
+            <div class="item1">
+                <button id="upload">Upload</button><br>
             </div>
-            <div class="text-container">
-                <input id="userText" type="text" placeholder="type your text here...">
+            <div class="item2">
+                <div class="slider-container">
+                    <label for="widthSlider" style="font-weight: 200; font-size: 14px;">Picture Width</label><br>
+                    <input id="widthSlider" type="range" min="720" max="1450">
+                </div>
             </div>
+            <div class="item3">
+                <button id="download">Download</button>
+            </div>  
+            <div class="item4">
+                <div class="text-container">
+                    <textarea id="userText" placeholder="type your text here..." maxlength="140"></textarea>
+                    <div id="charCount">Characters: 0</div> <!-- To display character count -->
+                </div>                
+            </div>
+            
+            
         </div>
+    </div>
+    <div id="message">
+        &nbsp♥ here's a tool made by Valia for yall all ♥&nbsp
     </div>
 </body>
 
@@ -63,6 +76,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const squares = document.querySelectorAll('.square');
+    let currentLogoUrl = 'logo.png'; // Default logo URL
+
+    squares.forEach(square => {
+        square.addEventListener('click', () => {
+            // Remove logo from all square divs
+            squares.forEach(s => {
+                s.innerHTML = '';
+            });
+
+            // Determine logo URL based on square id
+            const id = square.id;
+            currentLogoUrl = (id === 'picnic' || id === 'purple') ? 'logo2.png' : 'logo.png';
+
+            // Add logo image to the clicked square div
+            const logo = document.createElement('img');
+            logo.src = currentLogoUrl;
+            logo.alt = 'logo';
+            logo.style.width = '50%';
+            logo.style.height = 'auto';
+            logo.style.position = 'absolute';
+            logo.style.top = '50%';
+            logo.style.left = '50%';
+            logo.style.transform = 'translate(-50%, -50%)';
+            square.appendChild(logo);
+        });
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('widthSlider');
+
+    function updateSliderBackground() {
+        const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+        slider.style.setProperty('--value', `${value}%`);
+        // Add your image recognition code here
+        recognizeImage();
+    }
+
+    slider.addEventListener('input', updateSliderBackground);
+    updateSliderBackground();
+});
+
+function recognizeImage() {
+    // Add your image recognition logic here
+    // This function will be called every time the slider value changes
+    // You can update the canvas or perform any image processing tasks here
+}
 </script>
 
 </html>
