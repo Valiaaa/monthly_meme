@@ -309,3 +309,93 @@ input[type='range']::-webkit-slider-runnable-track {
     display: block;
 }
 
+@media screen and (max-width: 700px){
+    #bggrid {
+        background-size: 124%;
+    }
+
+    .operation {
+        width: 48vw;
+        display: block;
+    }
+
+    .squares {
+        width: 48vw;
+        grid-template-columns: repeat(3, 16vw);
+        grid-template-rows: repeat(2, 16vw);
+    }
+
+    .square {
+        width: 16vw;
+        height: 16vw;
+    }
+
+    .canvas-container {
+        width: 48vw;
+        height: 48vw;
+        display: block;
+    }
+
+    .gridHolder {
+        padding: 20px 28px;
+        display: grid;
+        grid-template-columns: 1fr 7fr;
+        gap: 20px 32px;
+    }
+
+    #message {
+        font-size: 10.8px;
+    }
+}
+
+@media screen and (max-width: 520px){
+    #bggrid {
+        background-size: 150%;
+    }
+
+    .operation {
+        width: 60vw;
+    }
+
+    .squares {
+        width: 60vw;
+        grid-template-columns: repeat(3, 20vw);
+        grid-template-rows: repeat(2, 20vw);
+    }
+
+    .square {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .canvas-container {
+        width: 60vw;
+        height: 60vw;
+    }
+}
+
+@media screen and (max-width: 420px){
+    #bggrid {
+        background-size: 180%;
+    }
+
+    .operation {
+        width: 78vw;
+    }
+
+    .squares {
+        width: 78vw;
+        grid-template-columns: repeat(3, 26vw);
+        grid-template-rows: repeat(2, 26vw);
+    }
+
+    .square {
+        width: 26vw;
+        height: 26vw;
+    }
+
+    .canvas-container {
+        width: 78vw;
+        height: 78vw;
+    }
+}

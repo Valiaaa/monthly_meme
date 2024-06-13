@@ -127,6 +127,61 @@ function recognizeImage() {
     // This function will be called every time the slider value changes
     // You can update the canvas or perform any image processing tasks here
 }
+
+// Function to check screen size and update button content
+function updateButtonContent() {
+    const uploadButton = document.getElementById('upload');
+
+    // Check if the screen width is less than or equal to 700px
+    if (window.innerWidth <= 700) {
+        uploadButton.innerHTML = ''; // Remove text content
+        uploadButton.style.backgroundColor = 'transparent'; // Remove background color
+        uploadButton.style.border = 'none'; // Remove border
+        uploadButton.style.width = '32px'; // Set width to 32px
+        uploadButton.style.height = '32px'; // Set height to 32px
+        uploadButton.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="%23282828" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0ZM93.66,77.66,120,51.31V144a8,8,0,0,0,16,0V51.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,77.66Z"></path></svg>\')'; // Set background image
+    } else {
+        // Restore default button content and styles if screen size is larger than 700px
+        uploadButton.innerHTML = 'Upload';
+        uploadButton.style.backgroundColor = '';
+        uploadButton.style.border = '';
+        uploadButton.style.width = '';
+        uploadButton.style.height = '';
+        uploadButton.style.backgroundImage = '';
+    }
+}
+
+// Call the function initially and add event listener for window resize
+updateButtonContent();
+window.addEventListener('resize', updateButtonContent);
+
+// Function to update download button content and style based on screen size
+function updateDownloadButton() {
+    const downloadButton = document.getElementById('download');
+
+    // Check if the screen width is less than or equal to 700px
+    if (window.innerWidth <= 700) {
+        downloadButton.innerHTML = ''; // Remove text content
+        downloadButton.style.backgroundColor = 'transparent'; // Remove background color
+        downloadButton.style.border = 'none'; // Remove border
+        downloadButton.style.width = '32px'; // Set width to 32px
+        downloadButton.style.height = '32px'; // Set height to 32px
+        downloadButton.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="%23282828" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>\')'; // Set background image
+    } else {
+        // Restore default button content and styles if screen size is larger than 700px
+        downloadButton.innerHTML = 'Download';
+        downloadButton.style.backgroundColor = '';
+        downloadButton.style.border = '';
+        downloadButton.style.width = '';
+        downloadButton.style.height = '';
+        downloadButton.style.backgroundImage = '';
+    }
+}
+
+// Call the function initially and add event listener for window resize
+updateDownloadButton();
+window.addEventListener('resize', updateDownloadButton);
+
 </script>
 
 </html>
